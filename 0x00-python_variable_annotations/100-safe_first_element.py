@@ -2,11 +2,12 @@
 """
 task 10's module
 """
-from typing import Optional, Any
 
-def safe_first_element(lst: Optional[list]) -> Any:
+from typing import Sequence, Any, Union
+
+def safe_first_element(lst: Sequence[Any]) -> Union[Any, None]:
     """
-    correct duck-typed annotations
+    Retrieves the first element of a sequence if it exists.
     """
     if lst:
         return lst[0]
