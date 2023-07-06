@@ -2,10 +2,15 @@
 """
 task 11's module
 """
-from typing import Dict, Any
+from typing import Dict, Any, Mapping, Union, TypeVar
 
 
-def safely_get_value(dct: Dict[Any, Any], key: Any, default: Any = None) -> Any:
+T = TypeVar('T')
+Res = Union[Any, T]
+Def = Union[T, None]
+
+
+def safely_get_value(dct: Mapping, key: Any, default: Def = None) -> Res:
     """
     adding type annotations to the function
     """
