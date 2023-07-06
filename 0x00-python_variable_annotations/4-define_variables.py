@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+task 4's module"
+"""
 
 
 a: int = 1
