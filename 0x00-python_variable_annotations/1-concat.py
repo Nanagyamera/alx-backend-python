@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-add function
+Task 0's module
 """
 
 
