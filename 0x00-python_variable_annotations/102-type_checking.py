@@ -2,19 +2,18 @@
 """
 task 12's module
 """
-from typing import Tuple, List, Any
+from typing import Tuple, List
 
 
-def zoom_array(lst: Tuple[Any, ...], factor: int = 2) -> Tuple[Any, ...]:
+def zoom_array(lst: Tuple, factor: int = 2) -> List:
     """
     Use mypy to validate the following piece of code and apply any necessary changes.
     """
-    zoomed_in: List[Any] = [
-        item
-        for item in lst
-        for _ in range(factor)
+    zoomed_in: List = [
+        item for item in lst
+        for i in range(int(factor))
     ]
-    return tuple(zoomed_in)
+    return zoomed_in
 
 
 array = (12, 72, 91)
