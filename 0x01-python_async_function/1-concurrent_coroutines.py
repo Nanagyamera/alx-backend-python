@@ -6,7 +6,7 @@ import asyncio
 from random_delay import wait_random  # Importing wait_random from the previous file
 
 
-async def wait_n(n, max_delay):
+async def wait_n(n: int, max_delay: int) -> List[float]:
     """
     Executes wait_random n times.
     """
