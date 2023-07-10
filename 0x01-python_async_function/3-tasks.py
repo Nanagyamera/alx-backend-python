@@ -3,13 +3,13 @@
 Task 3's module
 """
 import asyncio
-from basic_async_syntax import wait_random  # Importing wait_random from the previous file
 
 
-def task_wait_random(max_delay):
+wait_random = __import__('0-basic_async_syntax').wait_random
+
+
+def task_wait_random(max_delay: int) -> asyncio.Task:
     """
-    Creates an asynchronous task for wait_random
+    Computes the list of all the delays (float values)
     """
-    loop = asyncio.get_event_loop()
-    task = loop.create_task(wait_random(max_delay))
-    return task
+    return asyncio.create_task(wait_random(max_delay))
