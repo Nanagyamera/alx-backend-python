@@ -1,25 +1,19 @@
 #!/usr/bin/env python3
 """
-Taask 2's module
+Task 2's module
 """
 import asyncio
+import time
+from importlib import import_module as using
 
 
-from previous_file import async_comprehension
+async_comprehension = using('1-async_comprehension').async_comprehension
 
 
 async def measure_runtime() -> float:
     """
-    execute async_comprehension four times 
-    in parallel using asyncio.gather
+    execute async_comprehension four times in parallel using asyncio.gather
     """
-    start_time = asyncio.get_event_loop().time()
-    await asyncio.gather(
-        async_comprehension(),
-        async_comprehension(),
-        async_comprehension(),
-        async_comprehension()
-    )
-    end_time = asyncio.get_event_loop().time()
-    runtime = end_time - start_time
-    return runtime
+    start_time = time.time()
+    await asyncio.gather(*(async_comprehension() for _ in range(4)))
+    return time.time() - start_time
