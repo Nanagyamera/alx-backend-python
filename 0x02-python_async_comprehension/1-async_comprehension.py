@@ -3,14 +3,14 @@
 Task 1's module
 """
 from typing import List
-from importlib import import_module as using
+import asyncio
+import random
 
-
-async_generator = using('0-async_generator').async_generator
-
+async def async_generator() -> float:
+    for _ in range(10):
+        await asyncio.sleep(1)  # Asynchronously wait for 1 second
+        yield random.uniform(0, 10)  # Yield a random float between 0 and 10
 
 async def async_comprehension() -> List[float]:
-    """
-    Collects and returns 10 random numbers
-    """
-    return [num async for num in async_generator()]
+    result = [number async for number in async_generator()]
+    return result
