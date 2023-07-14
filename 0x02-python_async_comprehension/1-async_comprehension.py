@@ -15,5 +15,8 @@ async def async_generator() -> float:
         yield random.uniform(0, 10)  # Yield a random float between 0 and 10
 
 async def async_comprehension() -> List[float]:
+    """
+    Creates a list of 10 numbers from a 10-number generator.
+    """
     result = [number async for number in async_generator()]
     return result
