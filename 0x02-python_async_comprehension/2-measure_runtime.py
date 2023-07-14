@@ -3,9 +3,9 @@
 Task 2's module
 """
 import asyncio
-
-
+import time
 from previous_file import async_comprehension
+
 
 async def measure_runtime() -> float:
     """
