@@ -22,16 +22,16 @@ class TestAccessNestedMap(unittest.TestCase):
         self,
         nested_map: dict,
         path: tuple,
-        expected_result,
-    ):
+        expected_result: Union[dict, int],
+    ) -> None:
         """
         Tests `access_nested_map`'s output.
         """
         self.assertEqual(access_nested_map(nested_map, path), expected_result)
 
     @parameterized.expand([
-        ({}, ("a",) KeyError),
-        ({"a": 1}, ("a", "b"), KeyError),
+        ({}, ("a",)),
+        ({"a": 1}, ("a", "b")),
     ])
     def test_access_nested_map_exception(self, nested_map: dict, path: tuple):
         """
