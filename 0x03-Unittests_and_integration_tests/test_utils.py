@@ -22,8 +22,8 @@ class TestAccessNestedMap(unittest.TestCase):
         self,
         nested_map: dict,
         path: tuple,
-        expected_result: Union[dict, int],
-        ) -> None:
+        expected_result,
+    ):
         """
         Tests `access_nested_map`'s output.
         """
