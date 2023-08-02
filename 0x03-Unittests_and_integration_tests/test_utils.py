@@ -13,26 +13,20 @@ class TestAccessNestedMap(unittest.TestCase):
     Tests the access_nested_map function.
     """
 
-    @parameterized.expand([
-        ({"a": 1}, ("a",), 1),
-        ({"a": {"b": 2}}, ("a",), {"b": 2}),
-        ({"a": {"b": 2}}, ("a", "b"), 2),
-    ])
-    def test_access_nested_map(
-        self,
-        nested_map: dict,
-        path: tuple,
-        expected_result,
-    ):
+    def test_access_nested_map(self):
         """
-        Tests `access_nested_map`'s output.
+        Test cases for access_nested_map function
         """
-        self.assertEqual(access_nested_map(nested_map, path), expected_result)
+        test_cases = [
+            ({"a": 1}, ("a",), 1),
+            ({"a": {"b": 2}}, ("a",), {"b": 2}),
+            ({"a": {"b": 2}}, ("a", "b"), 2),
+        ]
 
-    @parameterized.expand([
-        ({}, ("a",)),
-        ({"a": 1}, ("a", "b")),
-    ])
+        for nested_map, path, expected_result in test_cases:
+            with self.subTest(nested_map=nested_map, path=path):
+                self.assertEqual(access_nested_map(nested_map, path), expected_result)
+
     def test_access_nested_map_exception(self, nested_map: dict, path: tuple):
         """
         Tests `access_nested_map`'s exception raising.
