@@ -75,6 +75,9 @@ class TestMemoize(unittest.TestCase):
     """
 
     def test_memoize(self):
+        """
+        The Tests memoize's output.
+        """
         class TestClass:
             def a_method(self) -> int:
                 return 42
